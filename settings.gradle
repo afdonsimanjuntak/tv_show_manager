@@ -1,0 +1,15 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "TV SHOW MANAGER"
+include ':app'
+include ':core'
+include ':data'
+include ':features:home'
+include ':features:add_tv_show'
+include ':features:tv_show_list'

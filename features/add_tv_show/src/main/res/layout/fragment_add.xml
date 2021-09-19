@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="io.afdon.add.ui.AddTvShowViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="@{vm.progressVisibility}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:padding="16dp"
+            android:hint="@string/tv_show"
+            tools:text="Tv Show"
+            android:text="@={vm.title}"
+            android:textSize="14sp"
+            android:inputType="textCapWords"
+            android:background="@drawable/shape_edittext_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/etReleaseDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            android:hint="@string/release_date"
+            android:text="@={vm.releaseDate}"
+            android:textSize="14sp"
+            android:background="@drawable/shape_edittext_bg"
+            tools:ignore="TextFields"
+            android:enabled="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:inputType="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etName"/>
+
+        <Button
+            android:id="@+id/bOpenDatePicker"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?selectableItemBackground"
+            app:layout_constraintStart_toStartOf="@id/etReleaseDate"
+            app:layout_constraintEnd_toEndOf="@id/etReleaseDate"
+            app:layout_constraintTop_toTopOf="@id/etReleaseDate"
+            app:layout_constraintBottom_toBottomOf="@id/etReleaseDate"/>
+
+        <EditText
+            android:id="@+id/etSeason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            android:hint="@string/season"
+            android:text="@={vm.season}"
+            android:textSize="14sp"
+            android:inputType="numberSigned"
+            android:background="@drawable/shape_edittext_bg"
+            tools:ignore="TextFields"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etReleaseDate"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/save_tv_show"
+            android:onClick="@{() -> vm.addTvShow()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etSeason"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,11 @@
+query GetTvShows {
+    movies(order: [createdAt_DESC]) {
+        edges {
+            node {
+                title
+                releaseDate
+                seasons
+            }
+        }
+    }
+}

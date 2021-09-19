@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_new_tv_show">Add new TV Show</string>
+    <string name="list_of_added_tv_shows">List of Added TV Shows</string>
+</resources>

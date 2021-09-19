@@ -1,0 +1,23 @@
+mutation SaveTvShow(
+    $title: String!,
+    $releaseDate: Date,
+    $seasons: Float
+) {
+    createMovie(
+        input: {
+            fields: {
+                title: $title
+                releaseDate: $releaseDate
+                seasons: $seasons
+            }
+            clientMutationId: "Afdon"
+        }
+    ) {
+        movie {
+            title
+            releaseDate
+            seasons
+        }
+        clientMutationId
+    }
+}
